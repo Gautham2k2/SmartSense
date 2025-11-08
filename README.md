@@ -27,3 +27,32 @@ The final application is a multi-page Streamlit dashboard that orchestrates the 
 4.  **`qdrant_db` (Qdrant Container):**
     * The unstructured (vector) database.
     * Stores vector embeddings of property descriptions and certificate text, making them searchable for a future RAG agent.
+
+How to Run (Replication Steps):
+
+Follow these steps to build and run the entire application on your local machine.
+
+### Prerequisites
+* [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running.
+* A Git client (like [GitHub Desktop](https://desktop.github.com/))
+
+### Step 1: Clone the Repository
+Clone this repository to your local machine.
+
+git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+cd your-repo-name
+
+### Step 2: Create Your Environment File
+Copy the template: In the project's root directory, make a copy of .env.example and name it .env
+Edit .env: Open the new .env file and add your secret API key from Groq:
+GROQ_API_KEY="your_gsk_...key_here"
+All other database variables are already set for the Docker environment.
+
+### Step 3: Build and Run with Docker Compose
+1. Open your terminal in the project's root directory.
+2. Run the following command: docker compose up --build
+
+### Step 4: Access the Application
+Once all four containers are running, open your web browser and go to: http://localhost:8501
+
+

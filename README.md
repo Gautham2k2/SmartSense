@@ -15,7 +15,7 @@ The final application is a multi-page Streamlit dashboard that orchestrates the 
     * It makes REST API calls to the backend and *never* talks to the databases directly.
 
 2.  **`backend` (FastAPI Container):**
-    * The "brain" of the operation. This Python server exposes three key endpoints as required:
+    * This server exposes three key endpoints as required:
         * `/chat`: Handles chat messages and routes them to the SQL Agent.
         * `/ingest`: Receives an Excel file and triggers the `ingest_logic.py` script as a background task.
         * `/parse-floorplan`: Receives an image and runs the `inference_logic.py` script.
@@ -54,13 +54,13 @@ SmartSense/
 │   └── inference_logic.py # <-- Phase 1: The YOLOv8 parsing logic
 │
 └── frontend/
-    ├── Dockerfile         # <-- Instructions to build the frontend container
-    ├── requirements.txt   # <-- All frontend Python dependencies
-    ├── Streamlit_App.py   # <-- The main "Welcome" page
-    └── pages/             # <-- Sub-pages for the Streamlit app
-        ├── Chatbot.py
-        ├── Ingest_Data.py
-        └── Parse_Floorplan.py
+│    ├── Dockerfile         # <-- Instructions to build the frontend container
+│    ├── requirements.txt   # <-- All frontend Python dependencies
+│    ├── Streamlit_App.py   # <-- The main "Welcome" page
+│    └── pages/             # <-- Sub-pages for the Streamlit app
+│        ├── Chatbot.py
+│        ├── Ingest_Data.py
+│        └── Parse_Floorplan.py
 └── phase_1/
 └── phase_2/
 └── phase_3/

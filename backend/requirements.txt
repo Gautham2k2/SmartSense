@@ -1,0 +1,17 @@
+fastapi
+uvicorn
+langchain-groq
+langchain-community
+langchain
+pymysql
+SQLAlchemy
+pandas
+openpyxl
+PyMuPDF
+sentence-transformers
+python-dotenv
+ultralytics
+requests 
+
+qdrant-client
+cryptography

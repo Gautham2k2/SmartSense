@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  mysql_db:
+    image: mysql:8.0
+    container_name: smartsense_mysql
+    restart: always
+    ports:
+      - "${LOCAL_DB_PORT}:3306" 
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWORD}
+      - MYSQL_DATABASE=${DB_NAME}
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  qdrant_db:
+    image: qdrant/qdrant:latest
+    container_name: smartsense_qdrant
+    restart: always
+    ports:
+      - "6333:6333" 
+      - "6334:6334" 
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  backend:
+    build: ./backend 
+    container_name: smartsense_backend
+    restart: always
+    ports:
+      - "8000:8000" 
+    volumes:
+      - ./assets:/app/assets
+    env_file:
+      - ./.env       
+    depends_on:
+      - mysql_db
+      - qdrant_db   
+
+  frontend:
+    build: ./frontend 
+    container_name: smartsense_frontend
+    restart: always
+    ports:
+      - "8501:8501"  
+    depends_on:
+      - backend  
+
+volumes:
+  mysql_data:
+  qdrant_data:

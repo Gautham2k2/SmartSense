@@ -1,0 +1,20 @@
+names:
+- Room
+- bathroom
+- bedroom
+- closet
+- garage
+- hall
+- kitchen
+- laundary
+- porch
+nc: 9
+roboflow:
+  license: CC BY 4.0
+  project: my-first-project-4sbu2
+  url: https://universe.roboflow.com/gauthams-workspace/my-first-project-4sbu2/dataset/4
+  version: 4
+  workspace: gauthams-workspace
+test: ../test/images
+train: ../train/images
+val: ../valid/images

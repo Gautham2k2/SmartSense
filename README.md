@@ -27,6 +27,40 @@ The final application is a multi-page Streamlit dashboard that orchestrates the 
 4.  **`qdrant_db` (Qdrant Container):**
     * The unstructured (vector) database.
     * Stores vector embeddings of property descriptions and certificate text, making them searchable for a future RAG agent.
+  
+## 🗂️ Project Structure
+
+Here is the final structure of the application, designed for a clean separation of concerns and easy Docker deployment.
+
+```txt
+SmartSense/
+├── .env                 # <-- Your local secrets (DO NOT COMMIT)
+├── .env.example         # <-- Public template for environment variables
+├── .gitignore           # <-- Tells Git to ignore .env, __pycache__, etc.
+├── docker-compose.yml   # <-- Main file to launch the entire application
+├── README.md            # <-- You are here!
+│
+├── assets/              # <-- All static data (Excel, images, certificates)
+│   ├── Property_list.xlsx
+│   ├── certificates/
+│   └── images/
+│
+├── backend/
+│   ├── Dockerfile         # <-- Instructions to build the backend container
+│   ├── requirements.txt   # <-- All backend Python dependencies
+│   ├── main.py            # <-- FastAPI app: hosts /chat, /ingest, /parse
+│   ├── agent.py           # <-- Phase 3: SQL Agent logic (Groq + LangChain)
+│   ├── ingest_logic.py    # <-- Phase 2: The ETL pipeline logic
+│   └── inference_logic.py # <-- Phase 1: The YOLOv8 parsing logic
+│
+└── frontend/
+    ├── Dockerfile         # <-- Instructions to build the frontend container
+    ├── requirements.txt   # <-- All frontend Python dependencies
+    ├── Streamlit_App.py   # <-- The main "Welcome" page
+    └── pages/             # <-- Sub-pages for the Streamlit app
+        ├── Chatbot.py
+        ├── Ingest_Data.py
+        └── Parse_Floorplan.py
 
 How to Run (Replication Steps):
 

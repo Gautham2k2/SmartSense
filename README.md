@@ -61,6 +61,10 @@ SmartSense/
         ├── Chatbot.py
         ├── Ingest_Data.py
         └── Parse_Floorplan.py
+└── phase_1/
+└── phase_2/
+└── phase_3/
+```
 
 How to Run (Replication Steps):
 

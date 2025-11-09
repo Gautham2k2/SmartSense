@@ -77,8 +77,8 @@ Follow these steps to build and run the entire application on your local machine
 ### Step 1: Clone the Repository
 Clone this repository to your local machine.
 
-git clone [https://github.com/your-username/your-repo-name.git](https://github.com/Gautham2k2/SmartSense.git)
-cd the-repo-name
+git clone (https://github.com/Gautham2k2/SmartSense.git)
+cd SmartSense
 
 ### Step 2: Create Your Environment File
 Copy the template: In the project's root directory, make a copy of .env.example and name it .env

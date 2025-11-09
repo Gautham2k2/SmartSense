@@ -78,6 +78,7 @@ Follow these steps to build and run the entire application on your local machine
 Clone this repository to your local machine.
 
 git clone (https://github.com/Gautham2k2/SmartSense.git)
+
 cd SmartSense
 
 ### Step 2: Create Your Environment File
